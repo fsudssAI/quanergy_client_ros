@@ -1,10 +1,11 @@
 from launch_ros.actions import Node
+import os #  (ZYblend 01/20/2023)
+
+from ament_index_python.packages import get_package_share_directory #  (ZYblend 01/20/2023)
 
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
-from launch.substitutions import PathJoinSubstitution
-from launch.substitutions import FindPackagePrefix
 
 
 def generate_launch_description():
@@ -12,6 +13,12 @@ def generate_launch_description():
     ns = LaunchConfiguration('ns')
     topic = LaunchConfiguration('topic')
     frame = LaunchConfiguration('frame')
+    
+    # get directory of setting file (ZYblend 01/20/2023)
+    setting_path = os.path.join(
+        get_package_share_directory('quanergy_client_ros'),
+        'settings/client.xml'
+    )
 
     host_arg = DeclareLaunchArgument(
         name='host',
@@ -44,8 +51,7 @@ def generate_launch_description():
         output='screen',
         arguments=[
                 "--host", host,
-                "--settings", PathJoinSubstitution(
-                    [FindPackagePrefix('quanergy_client_ros'), 'settings', 'client.xml']),
+                "--settings", setting_path,  # (ZYblend 01/20/2023)
                 "--topic", topic,
                 "--frame", frame
         ]

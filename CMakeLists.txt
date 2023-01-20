@@ -109,11 +109,11 @@ if(ament_cmake_FOUND)
 
   # Mark other files for installation (e.g. launch and bag files, etc.)
   install(FILES launch/client.launch.py
-    DESTINATION share/quanergy_client_ros
+    DESTINATION share/${PROJECT_NAME}
   )
 
   install(DIRECTORY settings/
-    DESTINATION settings
+    DESTINATION share/${PROJECT_NAME}
   )
 
   if(BUILD_TESTING)
