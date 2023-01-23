@@ -30,8 +30,8 @@ sudo apt install python3-colcon-common-extensions
 Clone the SDK and the ROS repository
 
 ```
-mkdir -p ~/QuanergySystems/sdk_ws/src
-cd ~/QuanergySystems/sdk_ws/src
+mkdir -p /home/QuanergySystems/sdk_ws/src
+cd /home/QuanergySystems/sdk_ws/src
 git clone https://github.com/QuanergySystems/quanergy_client.git
 cd quanergy_client
 git checkout feature/ros2
@@ -42,7 +42,7 @@ git checkout feature/ros2
 Build QuanergyClientRos
 
 ```
-cd ~/QuanergySystems/sdk_ws
+cd /home/QuanergySystems/sdk_ws
 colcon build
 ```
 ## Testing Build
@@ -67,5 +67,5 @@ ros2 run quanergy_client_ros client_node --help
 To add ROS environment configuration automatically to every future bash session
 ```
 echo "source /opt/ros/<distro>/setup.bash" >> ~/.bashrc
-echo "source ~/QuanergySystems/catkin_ws/devel_isolated/setup.bash" >> ~/.bashrc
+echo "source /home/QuanergySystems/catkin_ws/devel_isolated/setup.bash" >> ~/.bashrc
 ```
