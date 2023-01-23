@@ -33,7 +33,11 @@ Clone the SDK and the ROS repository
 mkdir -p ~/QuanergySystems/sdk_ws/src
 cd ~/QuanergySystems/sdk_ws/src
 git clone https://github.com/QuanergySystems/quanergy_client.git
-git clone https://github.com/QuanergySystems/quanergy_client_ros.git
+cd quanergy_client
+git checkout feature/ros2
+git clone https://github.com/fsudssAI/quanergy_client_ros.git
+cd quanergy_client_ros
+git checkout feature/ros2
 ```
 Build QuanergyClientRos
 
